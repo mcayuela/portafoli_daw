@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacte - Marcel Cayuela Dolcet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="fotos-portafoli/favicon-contacte-32.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="contenidor-titol-logo">
+            <img class="logo" src="" alt="">
+            <h1 class="titol"><span class="text-rosa">./</span>MarcelCayuelaDolcet<span class="text-rosa">.sh</span></h1>
+        </div>
+        <div class="contenidor-titol-petit">
+            <img class="logo" src="" alt="">
+            <h1 class="titol"><span class="text-rosa">./</span>MCD<span class="text-rosa">.sh</span></h1>
+        </div>
+        <nav>
+            <ul class="menu-superior">
+                <li><a class="li-menu-superior" href="index.html"><span class="text-rosa">#</span>inici</a></li>
+                <li><a class="li-menu-superior" href="recursos.html"><span class="text-rosa">#</span>recursos</a></li>
+                <li><a class="li-menu-superior" href="sobre-mi.html"><span class="text-rosa">#</span>sobre mi</a></li>
+                <li><a class="li-menu-superior" href="contacte.html"><span class="text-rosa">#</span>contacte</a></li>
+                <li><a class="li-link-cv" href="cv.html">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="formulari-contacte">
+            <div class="titol-formulari"><h1 class="titol-contactam">Contacta'm</h1>
+            <p>Emplena el següent formulari per enviar-me un correu.</p></div>
+            <form action="enviar-correu.php" method="GET">
+                <label for="nom"></label><br>
+                <input type="text" id="nom" name="nom" required placeholder="Nom"><br>
+
+                <label for="correu"></label><br>
+                <input type="correu" id="correu" name="correu" required placeholder="Correu"><br>
+
+                <label for="missatge"></label><br>
+                <textarea id="missatge" name="missatge" rows="4" required placeholder="Missatge"></textarea><br>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </main>
+    <footer>
+    <p>&copy; <span class="text-rosa">2025</span> <span class="text-rosa">M</span>arcel <span class="text-rosa">C</span>ayuela <span class="text-rosa">D</span>olcet</p>
+    </footer>
+</body>
+</html>
