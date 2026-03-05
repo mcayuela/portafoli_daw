@@ -72,7 +72,10 @@ footer {
 }
 
 .li-menu-superior:hover {
-    color: var(--vermell);
+    background-color: var(--vermell);
+    transition: all 0.3s ease;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .contenidor-titol-logo {
@@ -131,6 +134,13 @@ footer {
     height: 90px;
     background-color: var(--text-gris);
     margin-top: 20px;
+}
+
+.linia-horitzontal-subtitol {
+    text-align: right;
+    width: 100px;
+    height: 1px;
+    background-color: var(--text-gris);
 }
 
 .icones-socials a {
