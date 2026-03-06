@@ -254,41 +254,72 @@ footer {
 
 .timeline {
     position: relative;
-    max-width: 800px;
-    margin: 40px 0 0 20px;
-    border-left: 2px solid #233554; /* Línia vertical subtil */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Línia central */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #233554;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
 }
 
 .timeline-item {
+    padding: 10px 40px;
     position: relative;
-    padding-left: 40px;
-    margin-bottom: 50px;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
+/* Elements esquerra */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
 }
 
+/* Elements dreta */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Punts de la línia */
 .timeline-dot {
     position: absolute;
-    left: -9px; /* Centrat a la línia (2px width / 2 - 16px width / 2) */
-    top: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--bg-fosca);
+    border: 3px solid var(--vermell);
+    top: 25px;
     border-radius: 50%;
-    background: var(--bg-fosca);
-    border: 2px solid var(--vermell);
+    z-index: 1;
     transition: var(--transicio);
+    box-shadow: 0 0 0 4px var(--bg-fosca);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -10px;
 }
 
 .timeline-item:hover .timeline-dot {
-    background: var(--vermell);
-    box-shadow: 0 0 15px var(--vermell);
+    background-color: var(--vermell);
+    box-shadow: 0 0 0 4px var(--bg-fosca), 0 0 15px var(--vermell);
+    transform: scale(1.2);
 }
 
+/* Contingut */
 .timeline-content {
+    padding: 30px;
     background-color: #112240;
-    padding: 25px;
     border-radius: 6px;
     transition: var(--transicio);
     position: relative;
@@ -303,10 +334,73 @@ footer {
 
 .timeline-date {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--vermell);
     margin-bottom: 10px;
-    display: block;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Fletxes */
+.timeline-content::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 28px;
+    width: 0;
+    z-index: 1;
+    border: medium solid #112240;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -10px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #112240;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #112240 transparent transparent;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: left;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-dot {
+        left: 21px;
+        right: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 21px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -10px;
+        right: auto;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #112240 transparent transparent;
+    }
 }
 
 /* --- Estils Secció Sobre Mi (Integrats a Index) --- */
