@@ -1,19 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     --bg-fosca: #0a192f;
     --bg-header: #0a192fd9;
     --vermell: #ff6467;
     --text-clar: #ccd6f6;
     --text-gris: #8892b0;
-    --font-mono: 'SF Mono', 'Fira Code', monospace;
+    --font-titol: 'Audiowide', sans-serif;
+    --font-cos: 'Exo 2', sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Monaco', monospace;
     --transicio: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     background-color: #0a192f;
 }
 
-h1 {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-cos);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titol);
     color: var(--text-clar);
 }
 
-h2, p {
+p {
     color: var(--text-gris);
 }
 
@@ -50,21 +63,39 @@ footer {
     align-items: center;
 }
 
-.main-index {
+.hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
-    padding: 0 150px;
+    padding: 0 50px;
+    text-align: center;
+    position: relative;
+}
+
+.hero .avatar {
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    margin-bottom: 20px;
+}
+
+.content-wrapper {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 150px;
 }
 
 .li-menu-superior {
     text-decoration: none;
     color: var(--text-gris);
-    font-family: var(--font-mono);
+    font-family: var(--font-cos);
     font-size: 13px;
     transition: var(--transicio);
     display: flex;
@@ -87,7 +118,7 @@ footer {
 
 .titol {
     color: var(--text-clar);
-    font-family: var(--font-mono);
+    font-family: var(--font-titol);
     font-size: 1.2rem;
 }
 
@@ -102,8 +133,8 @@ footer {
     color: var(--vermell);
     border: 1px solid var(--vermell);
     border-radius: 4px;
-    text-decoration: none;
-    font-family: var(--font-mono);
+    text-decoration: none; 
+    font-family: var(--font-cos);
     font-size: 14px;
     box-shadow: 0px 0px 0px 0px var(--vermell);
     transition: all 0.2s ease-out;
@@ -185,4 +216,92 @@ footer {
         #ff646726, 
         transparent 80%
     );
+}
+
+
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    color: var(--vermell);
+    animation: bounce 2.5s infinite ease-in-out;
+}
+
+.scroll-down svg {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -15px);
+    }
+    60% {
+        transform: translate(-50%, -7px);
+    }
+}
+
+/* --- Estils Línia Temporal (Timeline) --- */
+.timeline-section {
+    margin-top: 80px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px 0 0 20px;
+    border-left: 2px solid #233554; /* Línia vertical subtil */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -9px; /* Centrat a la línia (2px width / 2 - 16px width / 2) */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-fosca);
+    border: 2px solid var(--vermell);
+    transition: var(--transicio);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--vermell);
+    box-shadow: 0 0 15px var(--vermell);
+}
+
+.timeline-content {
+    background-color: #112240;
+    padding: 25px;
+    border-radius: 6px;
+    transition: var(--transicio);
+    position: relative;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--vermell);
+    margin-bottom: 10px;
+    display: block;
 }
